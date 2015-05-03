@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog</title>
+  <title>Blogger</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
 </head>
 <body>
 
-<%= yield %>
+<div id="sidebar">
+<div id="logo">
+  <%= link_to root_path do%>
+  <% image_tag "logo.png" %>
+  <%end%>
+</div>
+<ul>
+<li class="category">Website</li>
+<li><%= link_to 'blog', root_path%></li>
+<li>About</li>
+</ul>
+
+<ul>
+<li class="category">Social</li>
+<li><a href="https://twitter.com/vrpraaveen">Twitter</a></li>
+<li><a href="http://stackoverflow.com/users/3248148/praaveen">Stackoverflow</a></li>
+<li><a href="https://github.com/pvin">Github</a></li>
+<li><a href="praaveen.ece@gmail.com">Email</a></li>
+</ul>
+<p class="sign_in">Admin Login</p>
+
+</div>
+
+<div id="main_content">
+  <div id="header">
+  <p>All blog</p>
+    <div class="buttons">
+      <button class="button"><%=link_to "new_post", new_post_path%></button>
+      <button class="button">Log Out</button>
+    </div>
+  </div>
+
+<%flash.each do |name, msg|%>
+ <%= content_tag(:div,msg, class: "alert" ) %>
+ <%end%>
+
+  <%= yield %>
+</div>
 
 </body>
 </html>
