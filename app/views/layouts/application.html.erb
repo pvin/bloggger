@@ -26,7 +26,6 @@
 <li><a href="https://twitter.com/vrpraaveen">Twitter</a></li>
 <li><a href="http://stackoverflow.com/users/3248148/praaveen">Stackoverflow</a></li>
 <li><a href="https://github.com/pvin">Github</a></li>
-<li><a href="praaveen.ece@gmail.com">Email</a></li>
 </ul>
 <p class="sign_in">Admin Login</p>
 
@@ -43,8 +42,8 @@
   <%end%>
 
     <div class="buttons">
-      <button class="button"><%=link_to "new_post", new_post_path%></button>
-      <button class="button">Log Out</button>
+      <%= button_to "New Post", new_post_path, method: :get %>
+      <%= button_to "Log  Out", root_path, method: :get   %>
     </div>
   </div>
 
